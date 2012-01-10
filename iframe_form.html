@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang=en>
+
+  <head>
+    <meta charset=utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SendTrash.com</title>
+  
+        
+    <style>
+
+      /* --- reset and general styles --- */
+
+      body {
+        font-family: Serif;
+        line-height: 20px;
+        font-size: 18px;
+        color: #333;
+        background: #fff;
+        margin:  20px auto;
+        max-width: 540px;
+      }
+
+      h1,h2 {
+        font-family: Sans-Serif;
+        letter-spacing: -.04em;
+        color: #333;
+      }
+
+      h1 { font-size: 70px; line-height: 70px; }
+      h2 { font-size: 30px; line-height: 40px; }
+
+      h1,h2,p,ul,table { margin: 0 0 15px 0;  }
+
+      a {
+          color: #CF5935;
+        text-decoration: none;
+      }
+
+      a:hover { color: #E67654; }
+      
+    </style>
+
+
+    <script>
+      function limitText(limitField, limitNum) {
+        if (limitField.value.length > limitNum) {
+          limitField.value = limitField.value.substring(0, limitNum);
+          }
+      }
+    </script>
+
+  </head>
+  
+  <body>
+				<form id="form1" name="form1" method="post" action="form_mailer.php">
+					<table width="100" border="0" cellspacing="0" cellpadding="0">
+  						<tr>
+
+   						<mark>Trash tweet:</mark>
+   						<td>
+     						<textarea onKeyDown="limitText(this,160);" name="question" cols="60" rows="5" id="question"></textarea>
+   						</td>
+ 						</tr>
+  						<tr>
+    					
+    					<td>
+    						<label>
+      							<input type="submit" name="Submit" id="Submit" value="Submit" />
+      							<em>(160 character limit)</em>
+    						</label>
+    					</td>
+  						</tr>
+					</table>
+				</form>
+
+  </body>
+</html>
