@@ -1,0 +1,180 @@
+
+<!doctype html>
+<html lang=en>
+
+	<head>
+		<meta charset=utf-8>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>SendTrash.com</title>
+		<meta name="description" content="Send Trash, Trash talking proxy for twitter">
+		<meta name="author" content="Send Trash">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		
+				
+		<style>
+
+			/* --- reset and general styles --- */
+
+			body {
+				font-family: Serif;
+				line-height: 20px;
+				font-size: 18px;
+				color: #333;
+				background: #fff;
+				margin:  20px auto;
+				max-width: 540px;
+			}
+
+			h1,h2 {
+				font-family: Sans-Serif;
+				letter-spacing: -.04em;
+				color: #333;
+			}
+
+			h1 { font-size: 70px; line-height: 70px; }
+			h2 { font-size: 30px; line-height: 40px; }
+
+			h1,h2,p,ul,table { margin: 0 0 15px 0;  }
+
+			table th, table a { white-space: pre; }
+
+			th {
+				padding: 0 20px 0 0;
+				text-align: left;
+				font-weight: bold;
+				vertical-align: top;
+			}
+
+			tr.child, tr.child th { font-size: 14px; }
+
+			tr.child th {
+				font-weight: normal;
+				text-indent: .5em;
+			}
+
+			a {
+			    color: #CF5935;
+				text-decoration: none;
+			}
+
+			a:hover { color: #E67654; }
+
+			/* --- header --- */
+
+			header p { font-size: 18px; background-color:#eee; display:inline-block;}
+
+			/* --- footer --- */
+
+			footer {
+				margin: 25px 0 0 0;
+				font-size: 12px;
+				opacity: .75;
+			}
+			
+		</style>
+
+		<script type="text/javascript">
+
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-28209254-1']);
+			  _gaq.push(['_trackPageview']);
+
+			  (function() {
+			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+
+		</script>
+
+		<script>
+			function limitText(limitField, limitNum) {
+    		if (limitField.value.length > limitNum) {
+        	limitField.value = limitField.value.substring(0, limitNum);
+    			}
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+		<header>
+			<h1>SendTrash.com</h1>
+		    	<p>
+		    		<p>A proxy to talk trash on twitter.
+		    		<a href="https://twitter.com/#!/sendtrash">@SendTrash</a> will tweet your trash.</p>
+		    	</p>
+		    	<br>
+		</header>
+
+		<section>
+				<form id="form1" name="form1" method="post" action="form_mailer.php">
+					<table width="100" border="0" cellspacing="0" cellpadding="0">
+  						<tr>
+
+   						<mark>Trash tweet:</mark>
+   						<td>
+     						<textarea onKeyDown="limitText(this,160);" name="question" cols="60" rows="5" id="question"></textarea>
+   						</td>
+ 						</tr>
+  						<tr>
+    					
+    					<td>
+    						<label>
+      							<input type="submit" name="Submit" id="Submit" value="Submit" />
+      							<em>(160 character limit)</em>
+    						</label>
+    					</td>
+  						</tr>
+					</table>
+				</form>
+
+			<p>The tweet will enter a <em>queue</em>,<br> then after <em>15 minutes</em> it will get posted by the <a href="https://twitter.com/#!/sendtrash">@SendTrash</a> twitter proxy.</p>
+
+			<ul>
+		    	<li>Please use responsibly.</li>
+		    </ul>
+		</section>
+
+		<section>
+		<br><br>
+		<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+			<script>
+				new TWTR.Widget({
+				  version: 2,
+				  type: 'profile',
+				  rpp: 6,
+				  interval: 30000,
+				  width: 400,
+				  height: 300,
+				  theme: {
+				    shell: {
+				      background: '#333333',
+				      color: '#ffffff'
+				    },
+				    tweets: {
+				      background: '#ffffff',
+				      color: '#000000',
+				      links: '#cf5935'
+				    }
+				  },
+				  features: {
+				    scrollbar: true,
+				    loop: false,
+				    live: false,
+				    behavior: 'all'
+				  }
+				}).render().setUser('SendTrash').start();
+			</script>
+		</section>
+
+		<footer>
+		updated: 01.09.12
+		</footer>
+
+
+
+		  
+					
+	</body>
+</html>
